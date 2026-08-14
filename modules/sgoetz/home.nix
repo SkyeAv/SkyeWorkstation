@@ -26,8 +26,7 @@
       # Zsh aliases
       shellAliases = {
         amphetamine = ''systemd-inhibit --what=idle:sleep --why="Presentation" sleep infinity'';
-        rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#skyeav";
-        zed = "zeditor";
+        rebuild = "home-manager switch --flake .#wenceslaus";
         pi = "npx pi";
         ps = "procs";
         top = "htop";

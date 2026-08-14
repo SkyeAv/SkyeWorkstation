@@ -4,7 +4,6 @@
     sgoetz@wenceslaus
     x86_64-linux
   '';
-
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
@@ -20,7 +19,6 @@
       url = "github:agent-of-empires/agent-of-empires";
     };
   };
-
   outputs =
     inputs:
     {
@@ -30,7 +28,6 @@
           config = {
             allowUnfree = true;
             cudaSupport = true;
-            permittedInsecurePackages = [ "electron-39.8.10" ];
           };
           overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
         };
