@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
     };
@@ -33,6 +37,7 @@
       modules = [
         ./modules/sgoetz/home.nix
         ./modules/settings.nix
+        inputs.nix-index-database.homeModules.default
       ];
     };
   };
