@@ -7,7 +7,6 @@
     SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
   };
-
   nix = {
     package = pkgs.nix;
     settings = {

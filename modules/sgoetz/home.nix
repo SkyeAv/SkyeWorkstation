@@ -15,14 +15,7 @@
       "$HOME/go/bin"
       "$HOME/.cargo/bin"
     ];
-    # Route all cargo builds through kache. Absolute path => works in ANY shell
-    # (pi agents / non-login bash have no ~/.cargo/bin on PATH).
-    file.".cargo/config.toml".text = ''
-      [build]
-      rustc-wrapper = "/home/sgoetz/.cargo/bin/kache"
-    '';
   };
-
   programs = {
     # Zsh configuration
     zsh = {
@@ -33,10 +26,7 @@
       # Zsh aliases
       shellAliases = {
         amphetamine = ''systemd-inhibit --what=idle:sleep --why="Presentation" sleep infinity'';
-        gateway = "ssh -J sgoetz@gateway.systemsbiology.net sgoetz@wenceslaus";
         rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#skyeav";
-        wenceslaus = "ssh sgoetz@wenceslaus";
-        ht1 = "ssh goetzs@ht1.renci.org";
         zed = "zeditor";
         pi = "npx pi";
         ps = "procs";
