@@ -31,7 +31,8 @@
       typescript-language-server
       cudaPackages.cudatoolkit
       yaml-language-server
-      rust-analyzer
+      # rust-analyzer
+      # removed due to conflicting subpaths
       cloudflared
       nixfmt-tree
       python314
