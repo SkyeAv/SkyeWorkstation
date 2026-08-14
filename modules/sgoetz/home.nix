@@ -20,6 +20,7 @@
     sessionVariables = {
       SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
       CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+      PYTHONIOENCODING = "utf-8";
     };
     # User package configuration
     packages = with pkgs; [
