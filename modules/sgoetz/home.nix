@@ -26,7 +26,8 @@
       # inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
       # too heavy to build rn
       beamMinimal28Packages.elixir_1_19
-      beamMinimal28Packages.elixir-ls
+      # beamMinimal28Packages.elixir-ls
+      # conflicts with cudatoolkit liscence path
       typescript-language-server
       cudaPackages.cudatoolkit
       yaml-language-server
