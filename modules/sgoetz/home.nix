@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -16,6 +17,80 @@
       "$HOME/.cargo/bin"
     ];
   };
+
+  # Environment variables
+  home.sessionVariables = {
+    SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+  };
+
+  # User package configuration
+  home.packages = with pkgs; [
+    inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
+    beamMinimal28Packages.elixir_1_19
+    beamMinimal28Packages.elixir-ls
+    typescript-language-server
+    cudaPackages.cudatoolkit
+    yaml-language-server
+    rust-analyzer
+    cloudflared
+    nixfmt-tree
+    python314
+    fastfetch
+    nodejs_24
+    nix-diff
+    ast-grep
+    usbutils
+    pciutils
+    awscli2
+    pyright
+    gnumake
+    ripgrep
+    psmisc
+    libzip
+    libgcc
+    rustup
+    pandoc
+    duckdb
+    gopls
+    cmake
+    ninja
+    procs
+    rsync
+    aria2
+    pdftk
+    unzip
+    curl
+    wget
+    tree
+    file
+    htop
+    btop
+    dust
+    lshw
+    acpi
+    gawk
+    perl
+    nixd
+    ruff
+    zlib
+    ghc
+    lua
+    nil
+    gcc
+    bun
+    eza
+    bat
+    fzf
+    zip
+    fd
+    jq
+    yq
+    go
+    gh
+    uv
+  ];
+
   programs = {
     # Zsh configuration
     zsh = {
@@ -26,7 +101,7 @@
       # Zsh aliases
       shellAliases = {
         amphetamine = ''systemd-inhibit --what=idle:sleep --why="Presentation" sleep infinity'';
-        rebuild = "home-manager switch --flake .#wenceslaus";
+        rebuild = "home-manager switch --flake .#sgoetz";
         pi = "npx pi";
         ps = "procs";
         top = "htop";

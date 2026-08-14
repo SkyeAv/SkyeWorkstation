@@ -1,0 +1,5 @@
+[[repos]]
+repo = "local"
+hooks = [
+  { id = "treefmt-nix", name = "treefmt-nix", entry = "treefmt", language = "system", types = ["nix"] }
+]

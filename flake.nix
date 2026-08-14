@@ -19,24 +19,21 @@
       url = "github:agent-of-empires/agent-of-empires";
     };
   };
-  outputs =
-    inputs:
-    {
-      homeConfigurations.wenceslaus = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import inputs.nixpkgs {
-          system = "x86_64-linux";
-          config = {
-            allowUnfree = true;
-            cudaSupport = true;
-          };
-          overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
+  outputs = inputs: {
+    homeConfigurations.sgoetz = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = import inputs.nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+          cudaSupport = true;
         };
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./modules/sgoetz/home.nix
-          ./modules/sgoetz/packages.nix
-          ./modules/sgoetz/environment.nix
-        ];
+        overlays = [ inputs.neovim-nightly-overlay.overlays.default ];
       };
+      extraSpecialArgs = { inherit inputs; };
+      modules = [
+        ./modules/sgoetz/home.nix
+        ./modules/settings.nix
+      ];
     };
+  };
 }
