@@ -23,7 +23,8 @@
     };
     # User package configuration
     packages = with pkgs; [
-      inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
+      # inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
+      # too heavy to build rn
       beamMinimal28Packages.elixir_1_19
       beamMinimal28Packages.elixir-ls
       typescript-language-server
