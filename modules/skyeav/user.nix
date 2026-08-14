@@ -42,6 +42,7 @@
       llama-cpp-vulkan
       cloudflare-warp
       signal-desktop
+      webull-desktop
       podman-compose
       rust-analyzer
       wl-clipboard
