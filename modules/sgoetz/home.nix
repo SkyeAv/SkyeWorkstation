@@ -101,7 +101,7 @@
       # Zsh aliases
       shellAliases = {
         amphetamine = ''systemd-inhibit --what=idle:sleep --why="Presentation" sleep infinity'';
-        rebuild = "home-manager switch --flake .#sgoetz";
+        rebuild = "home-manager switch --flake /local_raid1/sgoetz/home-manager#sgoetz";
         pi = "npx pi";
         ps = "procs";
         top = "htop";
@@ -120,6 +120,12 @@
         theme = "eastwood";
       };
       history.size = 100;
+    };
+    # Nix package lookup
+    nix-index = {
+      enable = true;
+      enableNushellIntegration = true;
+      enableZshIntegration = true;
     };
     # Zoxide integration
     zoxide = {
