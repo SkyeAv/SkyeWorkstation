@@ -3,6 +3,8 @@
   ...
 }:
 {
+  # Overwrite any existing nix.conf on activation
+  xdg.configFile."nix/nix.conf".force = true;
   # Nix package manager settings
   nix = {
     package = pkgs.nix;
