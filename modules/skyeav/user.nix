@@ -1,0 +1,140 @@
+{
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  # NixOS user configuration
+  users.users.skyeav = {
+    description = "Skye Lane Goetz";
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    # Group configuration
+    extraGroups = [
+      "networkmanager"
+      "libvirtd"
+      "comfyui"
+      "ydotool"
+      "render"
+      "podman"
+      "docker"
+      "wheel"
+      "input"
+      "video"
+      "audio"
+    ];
+    # Ranges for podman
+    autoSubUidGidRange = true;
+    # User package configuration
+    packages = with pkgs; [
+      inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
+      beamMinimal28Packages.elixir_1_19
+      beamMinimal28Packages.elixir-ls
+      playwright-driver.browsers
+      typescript-language-server
+      cudaPackages.cudatoolkit
+      kdePackages.libkscreen
+      yaml-language-server
+      nvtopPackages.nvidia
+      kdePackages.kzones
+      bitwarden-desktop
+      telegram-desktop
+      llama-cpp-vulkan
+      cloudflare-warp
+      signal-desktop
+      podman-compose
+      rust-analyzer
+      wl-clipboard
+      claude-code
+      nixfmt-tree
+      ghostscript
+      whisper-cpp
+      texliveFull
+      libreoffice
+      imagemagick
+      pavucontrol
+      virt-viewer
+      cloudflared
+      easyeffects
+      docker-sbx
+      dosfstools
+      alsa-utils
+      postgresql
+      clickhouse
+      python314
+      nodejs_24
+      fastfetch
+      xdg-utils
+      libnotify
+      ast-grep
+      graphviz
+      qpwgraph
+      mangohud
+      usbutils
+      pciutils
+      nix-diff
+      qrencode
+      openscad
+      gnumake
+      ripgrep
+      zoom-us
+      vesktop
+      pyright
+      awscli2
+      heroic
+      pandoc
+      ffmpeg
+      libzip
+      duckdb
+      libgcc
+      psmisc
+      rustup
+      drawio
+      aria2
+      gopls
+      mixxx
+      pdftk
+      rsync
+      unzip
+      slack
+      cmake
+      ninja
+      wtype
+      procs
+      scdl
+      ruff
+      file
+      htop
+      curl
+      wget
+      lshw
+      gawk
+      btop
+      dust
+      tree
+      prek
+      zlib
+      perl
+      nixd
+      acpi
+      nil
+      duf
+      fzf
+      zip
+      gcc
+      git
+      eza
+      bat
+      bun
+      ghc
+      lua
+      lz4
+      fd
+      jq
+      go
+      gh
+      uv
+      yq
+    ];
+  };
+}
