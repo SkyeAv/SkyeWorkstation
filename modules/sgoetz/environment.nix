@@ -1,16 +1,21 @@
 {
+  pkgs,
   ...
 }:
 {
-  # Nix package manager settings
+  home.sessionVariables = {
+    SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
+    CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+  };
+
   nix = {
+    package = pkgs.nix;
     settings = {
       auto-optimise-store = true;
       experimental-features = [
         "nix-command"
         "flakes"
       ];
-      # Subsituters
       substituters = [
         "https://cache.nixos.org"
         "https://cache.nixos-cuda.org"
@@ -27,12 +32,6 @@
         "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       ];
-    };
-    # Garbage collection
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
     };
   };
 }
