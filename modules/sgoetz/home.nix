@@ -24,7 +24,7 @@
     };
     # User package configuration
     packages = with pkgs; [
-      inputs.agent-of-empires.packages.${pkgs.system}.aoe
+      inputs.agent-of-empires.packages.${pkgs.system}.aoe-with-web
       beamMinimal28Packages.elixir_1_19
       # beamMinimal28Packages.elixir-ls
       # conflicts with cudatoolkit liscence path
