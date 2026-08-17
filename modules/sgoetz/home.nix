@@ -13,14 +13,17 @@
     sessionPath = [
       "$HOME/.kimi-code/bin"
       "$HOME/.local/bin"
-      "$HOME/go/bin"
       "$HOME/.cargo/bin"
+      "$HOME/go/bin"
     ];
     # Environment variables
     sessionVariables = {
       SSL_CERT_FILE = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
       CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
       PYTHONIOENCODING = "utf-8";
+      LC_ALL = "C.UTF-8";
+      PYTHONUTF8 = "1";
+      LANG = "C.UTF-8";
     };
     # User package configuration
     packages = with pkgs; [
