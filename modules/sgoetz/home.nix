@@ -1,6 +1,5 @@
 {
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -36,6 +35,7 @@
       # removed due to conflicting subpaths
       cloudflared
       nixfmt-tree
+      claude-code
       python314
       fastfetch
       nodejs_24
